@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gesture Art</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body style="background-image: url('/static/images/2 hands.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+<a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+    <img src="/static/images/brand icon.png" alt="Brand Icon" style="height: 30px; width: 30px; margin-right: 8px;">
+    <span>Gesture Art</span>
+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('help_page') }}">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4 fade-in">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white mt-5 p-4 text-center">
+        <div class="container">
+            <h5>Contact Us</h5>
+            <div class="d-flex justify-content-center gap-4 mt-3">
+                <a href="https://www.instagram.com/vishh_al_23_/" target="_blank" class="text-white fs-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/yourprofile" target="_blank" class="text-white fs-4">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="tel:95537 06650" class="text-white fs-4">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:vishalgudla2@gmail.com" class="text-white fs-4">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="mt-3 mb-0">&copy; 2025 Gesture Art. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

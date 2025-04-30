@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Virtual Painting{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: black !important;
+    
+    }
+    h1{
+        color:white;
+    }
+</style>
+    <h1>Virtual Painting with Hand Gestures</h1>
+
+    
+    <div class="app-container">
+        <!-- Webcam Feed -->
+        <div class="webcam-container">
+            <img id="webcam-feed" src="{{ url_for('video_feed') }}">
+        </div>
+        
+        <!-- Drawing Canvas -->
+        <div class="canvas-container">
+            <canvas id="drawing-canvas" width="640" height="480"></canvas>
+        </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="controls mt-3">
+        <button id="start-btn" class="btn btn-primary me-2">Start</button>
+        <button id="stop-btn" class="btn btn-secondary me-2">Stop</button>
+        <button id="clear-btn" class="btn btn-danger me-2">Clear Canvas</button>
+        <button id="undo-btn" class="btn btn-warning me-2">Undo</button>
+        <button id="redo-btn" class="btn btn-warning me-2">Redo</button>
+        <button id="save-btn" class="btn btn-success me-2">Save Drawing</button>
+        <button id="load-btn" class="btn btn-info me-2">Load Drawing</button>
+        <input type="file" id="file-input" accept=".png,.jpg,.jpeg" style="display: none;">
+        <div class="color-palette mt-3 d-flex gap-2">
+            <div class="color rounded-circle" style="background-color: red; width: 30px; height: 30px;" data-color="255,0,0"></div>
+            <div class="color rounded-circle" style="background-color: blue; width: 30px; height: 30px;" data-color="0,0,255"></div>
+            <div class="color rounded-circle" style="background-color: green; width: 30px; height: 30px;" data-color="0,255,0"></div>
+            <div class="color rounded-circle" style="background-color: yellow; width: 30px; height: 30px;" data-color="255,255,0"></div>
+            <div class="color rounded-circle" style="background-color: purple; width: 30px; height: 30px;" data-color="128,0,128"></div>
+            <div class="color rounded-circle" style="background-color: black; width: 30px; height: 30px;" data-color="0,0,0"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/js/main.js"></script>
+{% endblock %}
